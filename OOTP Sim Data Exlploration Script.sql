@@ -15,6 +15,33 @@ FROM "Player Info CSV" pic
 GROUP BY Schl
 ORDER BY TOTAL DESC;
 
+--How top colleges perform in MLB
+SELECT Schl, AVG(WAR), COUNT(Schl) as TOTAL
+FROM "Batting Stats CSV" bsc 
+LEFT JOIN "Player Info CSV" pic 
+ON pic.ID = bsc.ID 
+GROUP BY Schl
+ORDER BY TOTAL DESC;
+
+SELECT Schl, AVG(rWAR), AVG(WAR), COUNT(Schl) as TOTAL
+FROM "Pitching Stats CSV" psc 
+LEFT JOIN "Player Info CSV" pic 
+ON pic.ID = psc.ID 
+GROUP BY Schl
+ORDER BY TOTAL DESC;
+
+--Colleges that produce best hitting results
+SELECT Schl, AVG(WAR)
+FROM "Batting Stats CSV" bsc 
+LEFT JOIN "Player Info CSV" pic 
+ON pic.ID = bsc.ID
+GROUP BY pic.Schl 
+ORDER BY AVG(WAR) DESC
+
+
+
+
+
 
 SELECT * FROM "Pitching Stats CSV" psc
 LIMIT 10;
