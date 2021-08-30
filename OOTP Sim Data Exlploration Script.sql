@@ -43,7 +43,13 @@ ORDER BY AVG(WAR) DESC
 
 
 
-SELECT * FROM "Pitching Stats CSV" psc
+SELECT * 
+FROM "Pitching Stats CSV" psc
+LIMIT 10;
+
+SELECT rWAR, WAR 
+FROM "Pitching Stats CSV" psc
+ORDER BY WAR DESC
 LIMIT 10;
 
 --Top 10 starters
@@ -66,9 +72,6 @@ ORDER BY rWAR + WAR DESC
 LIMIT 10;
 
 
-
-SELECT * FROM "Batting Stats CSV" bsc 
-LIMIT 10
 
 --Top 20 batters
 SELECT bsc.POS, bsc.Name, bsc.B, AVG, OBP, SLG, wOBA, "wRC+", WAR 
